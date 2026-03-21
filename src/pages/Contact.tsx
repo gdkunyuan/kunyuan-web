@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   MapPin,
-  Phone,
   Mail,
   Clock,
   Send,
@@ -14,11 +13,6 @@ const contactInfo = [
     icon: MapPin,
     title: '公司地址',
     lines: ['广东省中山市三乡镇雍陌村教育路6号', '雍泉度假山庄领秀山1幢502房'],
-  },
-  {
-    icon: Phone,
-    title: '联系电话',
-    lines: ['400-XXX-XXXX（全国热线）', '0XX-XXXX-XXXX（办公室）'],
   },
   {
     icon: Mail,
@@ -70,7 +64,7 @@ export default function Contact() {
           <p className="text-blue-400 text-sm font-medium uppercase tracking-widest mb-3">联系我们</p>
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">随时随地，联系我们</h1>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            填写下方表单或直接拨打我们的咨询热线，专业顾问将在 24 小时内与您联系
+            填写下方表单，专业顾问将在 24 小时内与您联系
           </p>
         </div>
       </section>
@@ -264,7 +258,7 @@ export default function Contact() {
                     </div>
                     <h3 className="text-2xl font-semibold text-primary mb-3">提交成功！</h3>
                     <p className="text-slate-500 max-w-sm leading-relaxed mb-6">
-                      感谢您的咨询，我们的专业顾问将在 24 小时内与您联系，请保持电话畅通。
+                      感谢您的咨询，我们的专业顾问将在 24 小时内与您联系。
                     </p>
                     <button
                       onClick={() => { setSubmitted(false); setForm({ name: '', company: '', phone: '', email: '', service: '', message: '' }) }}
@@ -292,7 +286,7 @@ export default function Contact() {
             {[
               {
                 q: '初次合作如何开始？',
-                a: '您只需通过电话、邮件或本页面表单联系我们，我们的顾问将安排免费的初步沟通，了解您的需求后提供相应方案。',
+                a: '您只需通过邮件或本页面表单联系我们，我们的顾问将安排免费的初步沟通，了解您的需求后提供相应方案。',
               },
               {
                 q: '服务费用如何计算？',
