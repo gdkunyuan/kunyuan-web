@@ -1,0 +1,10 @@
+{
+  "Domain": "www.gdkunyuan.cn",
+  "ServiceType": "web",
+  "Area": "mainland",
+  "Origin": {
+    "Origins": ["kunyuan-1257542161.cos.ap-guangzhou.myqcloud.com"],
+    "OriginType": "cos",
+    "OriginPullProtocol": "http"
+  }
+}
