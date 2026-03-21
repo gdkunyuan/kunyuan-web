@@ -34,28 +34,37 @@ export default function About() {
   return (
     <div className="pt-16">
       {/* Page Header */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-blue-400 text-sm font-medium uppercase tracking-widest mb-3">关于我们</p>
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-30 animate-grid-move"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cta/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-secondary/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-xs text-cta font-medium mb-6 neon-border">
+            <span className="font-mono">// ABOUT US</span>
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-5">
             值得信赖的企业服务伙伴
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            广东坤元企业管理咨询有限公司，深耕企业服务领域逾十年，以专业赋能企业成长
+          <p className="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+            广东坤元企业管理咨询有限公司，深耕企业服务领域，以专业赋能企业成长
           </p>
         </div>
       </section>
 
       {/* Company Intro */}
-      <section className="bg-bg-light py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-bg-light py-24 relative">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">公司简介</p>
-              <h2 className="text-3xl font-semibold text-primary mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/30 rounded-full text-xs text-cta font-medium mb-6">
+                <span className="font-mono">// COMPANY PROFILE</span>
+              </div>
+              <h2 className="text-4xl font-bold text-text-main mb-6">
                 专业团队，精益求精
               </h2>
-              <div className="space-y-4 text-slate-500 leading-relaxed">
+              <div className="space-y-4 text-text-muted leading-relaxed text-lg">
                 <p>
                   广东坤元企业管理咨询有限公司成立于 2022 年，总部位于广东省，是一家专业从事企业管理咨询、
                   人力资源服务、财务管理咨询及 IT 技术服务的综合性咨询机构。
@@ -75,9 +84,9 @@ export default function About() {
                   { value: '3+', label: '年经验' },
                   { value: '98%', label: '满意度' },
                 ].map((s, i) => (
-                  <div key={i} className="text-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
-                    <div className="text-2xl font-semibold text-cta">{s.value}</div>
-                    <div className="text-slate-400 text-xs mt-1">{s.label}</div>
+                  <div key={i} className="text-center p-6 glass-card rounded-xl hover:shadow-glow transition-all duration-300 cursor-default">
+                    <div className="text-3xl font-bold text-cta glow-text">{s.value}</div>
+                    <div className="text-text-muted text-xs mt-2 font-mono">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -90,14 +99,14 @@ export default function About() {
                 return (
                   <div
                     key={i}
-                    className="flex gap-5 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-200"
+                    className="flex gap-5 p-6 glass-card rounded-2xl hover:shadow-glow transition-all duration-300 neon-border"
                   >
-                    <div className="w-12 h-12 bg-blue-50 text-cta rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Icon size={22} />
+                    <div className="w-14 h-14 bg-gradient-to-br from-cta/20 to-accent/20 text-cta rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon size={26} />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary mb-1.5">{v.title}</h3>
-                      <p className="text-slate-500 text-sm leading-relaxed">{v.content}</p>
+                      <h3 className="font-bold text-text-main mb-1.5">{v.title}</h3>
+                      <p className="text-text-muted text-sm leading-relaxed">{v.content}</p>
                     </div>
                   </div>
                 )
@@ -108,12 +117,15 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-secondary/30 py-24 relative">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">专业团队</p>
-            <h2 className="text-3xl font-semibold text-primary mb-4">经验丰富的专家团队</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/30 rounded-full text-xs text-cta font-medium mb-6">
+              <span className="font-mono">// PROFESSIONAL TEAM</span>
+            </div>
+            <h2 className="text-4xl font-bold text-text-main mb-4">经验丰富的专家团队</h2>
+            <p className="text-text-muted max-w-xl mx-auto text-lg">
               我们的四大专业团队协同作战，为企业提供覆盖管理、人力、财务和 IT 的全方位服务
             </p>
           </div>
@@ -122,14 +134,14 @@ export default function About() {
             {team.map((t, i) => (
               <div
                 key={i}
-                className="text-center p-8 bg-bg-light rounded-2xl border border-slate-100 hover:border-cta/30 hover:shadow-md transition-all duration-200"
+                className="group text-center p-8 glass-card rounded-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-1 neon-border"
               >
-                <div className="w-16 h-16 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-cta/20 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Users size={28} className="text-cta" />
                 </div>
-                <div className="text-3xl font-semibold text-cta mb-2">{t.count}</div>
-                <h3 className="font-semibold text-primary mb-2">{t.name}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">{t.desc}</p>
+                <div className="text-3xl font-bold text-cta mb-2 glow-text">{t.count}</div>
+                <h3 className="font-bold text-text-main mb-2">{t.name}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{t.desc}</p>
               </div>
             ))}
           </div>
@@ -137,16 +149,19 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-bg-light py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <section className="bg-bg-light py-24 relative">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">发展历程</p>
-            <h2 className="text-3xl font-semibold text-primary mb-4">稳步发展，持续精进</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/30 rounded-full text-xs text-cta font-medium mb-6">
+              <span className="font-mono">// TIMELINE</span>
+            </div>
+            <h2 className="text-4xl font-bold text-text-main mb-4">稳步发展，持续精进</h2>
           </div>
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 lg:-translate-x-0.5"></div>
+            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cta via-accent to-accent-secondary lg:-translate-x-0.5"></div>
 
             <div className="space-y-8">
               {timeline.map((item, i) => (
@@ -156,14 +171,14 @@ export default function About() {
                 >
                   {/* Content */}
                   <div className={`flex-1 pl-12 lg:pl-0 ${i % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                    <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 hover:shadow-md transition-shadow duration-200">
-                      <div className="text-cta font-semibold text-lg mb-1">{item.year}</div>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item.event}</p>
+                    <div className="glass-card rounded-xl p-5 hover:shadow-glow transition-all duration-300 neon-border">
+                      <div className="text-cta font-bold text-lg mb-1 font-mono">{item.year}</div>
+                      <p className="text-text-muted text-sm leading-relaxed">{item.event}</p>
                     </div>
                   </div>
 
                   {/* Dot */}
-                  <div className="absolute left-4 lg:left-1/2 top-5 w-3 h-3 rounded-full bg-cta border-2 border-white shadow-md lg:-translate-x-1.5 -translate-x-1.5"></div>
+                  <div className="absolute left-4 lg:left-1/2 top-5 w-3 h-3 rounded-full bg-cta border-2 border-white shadow-glow lg:-translate-x-1.5 -translate-x-1.5"></div>
 
                   {/* Spacer for desktop */}
                   <div className="hidden lg:block flex-1"></div>
@@ -175,11 +190,14 @@ export default function About() {
       </section>
 
       {/* Qualifications */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-secondary/30 py-20 relative">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">资质荣誉</p>
-            <h2 className="text-3xl font-semibold text-primary">专业资质，实力保障</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/30 rounded-full text-xs text-cta font-medium mb-6">
+              <span className="font-mono">// QUALIFICATIONS</span>
+            </div>
+            <h2 className="text-4xl font-bold text-text-main">专业资质，实力保障</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
@@ -191,15 +209,15 @@ export default function About() {
             ].map((q, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center gap-3 p-6 bg-bg-light rounded-2xl border border-slate-100"
+                className="group flex flex-col items-center gap-3 p-6 glass-card rounded-2xl hover:shadow-glow transition-all duration-300 neon-border"
               >
-                <div className="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center">
-                  <q.icon size={22} className="text-yellow-500" />
+                <div className="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent-secondary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <q.icon size={22} className="text-accent" />
                 </div>
-                <span className="text-primary text-sm font-medium text-center">{q.label}</span>
+                <span className="text-text-main text-sm font-medium text-center">{q.label}</span>
                 <div className="flex items-center gap-1">
-                  <CheckCircle2 size={13} className="text-emerald-500" />
-                  <span className="text-emerald-600 text-xs">已认证</span>
+                  <CheckCircle2 size={13} className="text-success" />
+                  <span className="text-success text-xs font-mono">已认证</span>
                 </div>
               </div>
             ))}
@@ -208,16 +226,23 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-semibold text-white mb-4">与坤元携手，共创企业未来</h2>
-          <p className="text-slate-300 mb-8">联系我们，获取专属企业服务方案</p>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cta via-accent-secondary to-accent"></div>
+        <div className="absolute inset-0 tech-bg opacity-20"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse-glow"></div>
+
+        <div className="relative max-w-3xl mx-auto px-6 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white/90 font-medium mb-6">
+            <span className="font-mono">PARTNER WITH US</span>
+          </div>
+          <h2 className="text-4xl font-bold text-white mb-4">与坤元携手，共创企业未来</h2>
+          <p className="text-blue-100 mb-8 text-lg">联系我们，获取专属企业服务方案</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-colors duration-200 cursor-pointer"
+            className="group inline-flex items-center gap-2 px-10 py-4 bg-white text-cta font-bold rounded-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
           >
             立即联系
-            <ArrowRight size={17} />
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>

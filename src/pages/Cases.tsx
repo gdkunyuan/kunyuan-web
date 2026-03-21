@@ -6,9 +6,9 @@ const cases = [
   {
     id: 'management',
     icon: TrendingUp,
-    color: 'bg-blue-500',
-    lightColor: 'bg-blue-50',
-    textColor: 'text-blue-600',
+    color: 'bg-gradient-to-br from-cta to-cta/80',
+    lightColor: 'bg-cta/10',
+    textColor: 'text-cta',
     title: '企业管理咨询',
     cases: [
       {
@@ -40,9 +40,9 @@ const cases = [
   {
     id: 'hr',
     icon: Users,
-    color: 'bg-indigo-500',
-    lightColor: 'bg-indigo-50',
-    textColor: 'text-indigo-600',
+    color: 'bg-gradient-to-br from-accent to-accent/80',
+    lightColor: 'bg-accent/10',
+    textColor: 'text-accent',
     title: '人力资源服务',
     cases: [
       {
@@ -74,9 +74,9 @@ const cases = [
   {
     id: 'finance',
     icon: BarChart3,
-    color: 'bg-emerald-500',
-    lightColor: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
+    color: 'bg-gradient-to-br from-success to-success/80',
+    lightColor: 'bg-success/10',
+    textColor: 'text-success',
     title: '财务管理咨询',
     cases: [
       {
@@ -108,9 +108,9 @@ const cases = [
   {
     id: 'it',
     icon: Cpu,
-    color: 'bg-violet-500',
-    lightColor: 'bg-violet-50',
-    textColor: 'text-violet-600',
+    color: 'bg-gradient-to-br from-accent-secondary to-accent-secondary/80',
+    lightColor: 'bg-accent-secondary/10',
+    textColor: 'text-accent-secondary',
     title: 'IT 技术服务',
     cases: [
       {
@@ -145,19 +145,26 @@ export default function Cases() {
   return (
     <div className="pt-16">
       {/* Page Header */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-blue-400 text-sm font-medium uppercase tracking-widest mb-3">客户案例</p>
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">精选成功案例</h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-30 animate-grid-move"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cta/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-secondary/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-xs text-cta font-medium mb-6 neon-border">
+            <span className="font-mono">// CASES</span>
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-5 glow-text">精选成功案例</h1>
+          <p className="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             深入各行各业，用专业服务助力企业实现突破性增长
           </p>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="bg-white py-12 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-primary py-12 border-t border-cta/20 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { num: '20+', label: '服务企业' },
@@ -165,9 +172,9 @@ export default function Cases() {
               { num: '35%', label: '平均营收增长' },
               { num: '28%', label: '平均成本降低' },
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl lg:text-4xl font-bold text-cta mb-2">{stat.num}</div>
-                <div className="text-slate-500 text-sm">{stat.label}</div>
+              <div key={i} className="glass-card rounded-xl p-6 text-center hover:shadow-glow transition-all duration-300">
+                <div className="text-3xl lg:text-4xl font-bold text-cta mb-2 glow-text">{stat.num}</div>
+                <div className="text-text-muted text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -175,20 +182,22 @@ export default function Cases() {
       </section>
 
       {/* Cases by Category */}
-      <section className="bg-bg-light py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-primary py-20 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-20"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           {cases.map((category, catIdx) => {
             const CategoryIcon = category.icon
             return (
               <div key={category.id} className="mb-16">
                 {/* Category Header */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center`}>
+                  <div className={`w-12 h-12 ${category.color} rounded-xl flex items-center justify-center shadow-glow`}>
                     <CategoryIcon size={22} className="text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-semibold text-primary">{category.title}</h2>
-                    <p className="text-slate-500 text-sm">精选案例</p>
+                    <h2 className="text-2xl font-semibold text-text-main glow-text">{category.title}</h2>
+                    <p className="text-text-muted text-sm">精选案例</p>
                   </div>
                 </div>
 
@@ -197,28 +206,28 @@ export default function Cases() {
                   {category.cases.map((case_, caseIdx) => (
                     <div
                       key={`${category.id}-${caseIdx}`}
-                      className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
+                      className="glass-card rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300 neon-border"
                     >
                       <div className="grid grid-cols-1 lg:grid-cols-3">
                         {/* Left: Company Info */}
-                        <div className={`${category.lightColor} p-8 lg:col-span-1`}>
+                        <div className={`${category.lightColor} p-8 lg:col-span-1 backdrop-blur-sm`}>
                           <div className="flex items-center gap-3 mb-6">
-                            <div className={`w-14 h-14 ${category.color} rounded-xl flex items-center justify-center`}>
+                            <div className={`w-14 h-14 ${category.color} rounded-xl flex items-center justify-center shadow-glow`}>
                               <Building2 size={24} className="text-white" />
                             </div>
                             <div>
-                              <h3 className="font-semibold text-primary">{case_.companyName}</h3>
+                              <h3 className="font-semibold text-text-main">{case_.companyName}</h3>
                               <p className={`text-sm ${category.textColor} font-medium`}>{case_.industry}</p>
                             </div>
                           </div>
                           <div className="space-y-4">
                             <div>
-                              <div className="text-xs text-slate-500 mb-2">服务标签</div>
+                              <div className="text-xs text-text-muted mb-2">服务标签</div>
                               <div className="flex flex-wrap gap-2">
                                 {case_.tags.map((tag) => (
                                   <span
                                     key={tag}
-                                    className={`px-2.5 py-1 ${category.lightColor} ${category.textColor} text-xs font-medium rounded-full`}
+                                    className={`px-2.5 py-1 ${category.lightColor} ${category.textColor} text-xs font-medium rounded-full border border-current/20`}
                                   >
                                     {tag}
                                   </span>
@@ -226,8 +235,8 @@ export default function Cases() {
                               </div>
                             </div>
                             <div>
-                              <div className="text-xs text-slate-500 mb-2">服务周期</div>
-                              <div className="text-sm text-slate-600">{case_.timeframe}</div>
+                              <div className="text-xs text-text-muted mb-2">服务周期</div>
+                              <div className="text-sm text-text-muted">{case_.timeframe}</div>
                             </div>
                           </div>
                         </div>
@@ -237,35 +246,35 @@ export default function Cases() {
                           <div className="space-y-6">
                             {/* Challenge */}
                             <div>
-                              <h4 className="flex items-center gap-2 font-semibold text-primary mb-3">
+                              <h4 className="flex items-center gap-2 font-semibold text-text-main mb-3">
                                 <Target size={18} className={category.textColor} />
                                 面临挑战
                               </h4>
-                              <p className="text-slate-600 text-sm leading-relaxed">{case_.challenge}</p>
+                              <p className="text-text-muted text-sm leading-relaxed">{case_.challenge}</p>
                             </div>
 
                             {/* Solution */}
                             <div>
-                              <h4 className="flex items-center gap-2 font-semibold text-primary mb-3">
+                              <h4 className="flex items-center gap-2 font-semibold text-text-main mb-3">
                                 <Award size={18} className={category.textColor} />
                                 解决方案
                               </h4>
-                              <p className="text-slate-600 text-sm leading-relaxed">{case_.solution}</p>
+                              <p className="text-text-muted text-sm leading-relaxed">{case_.solution}</p>
                             </div>
 
                             {/* Results */}
                             <div>
-                              <h4 className="flex items-center gap-2 font-semibold text-primary mb-3">
+                              <h4 className="flex items-center gap-2 font-semibold text-text-main mb-3">
                                 <TrendingUp size={18} className={category.textColor} />
                                 实施效果
                               </h4>
-                              <p className="text-slate-600 text-sm leading-relaxed">{case_.result}</p>
+                              <p className="text-text-muted text-sm leading-relaxed">{case_.result}</p>
                             </div>
 
                             {/* Quote */}
-                            <div className={`${category.lightColor} rounded-xl p-5 border-l-4 ${category.color}`}>
+                            <div className={`${category.lightColor} rounded-xl p-5 border-l-4 ${category.textColor} backdrop-blur-sm`}>
                               <Quote size={16} className={category.textColor} />
-                              <p className="text-slate-700 text-sm italic mb-3 mt-2">"{case_.quote}"</p>
+                              <p className="text-text-main text-sm italic mb-3 mt-2">"{case_.quote}"</p>
                               <p className={`text-xs ${category.textColor} font-medium`}>— {case_.quoteBy}</p>
                             </div>
                           </div>
@@ -281,12 +290,16 @@ export default function Cases() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-secondary/50 py-20 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">为什么选择我们</p>
-            <h2 className="text-3xl font-semibold text-primary mb-4">专业值得信赖</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 glass-card rounded-full text-xs text-cta font-medium mb-4">
+              <span className="font-mono">// WHY US</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-text-main mb-4 glow-text">专业值得信赖</h2>
+            <p className="text-text-muted max-w-xl mx-auto">
               我们深耕企业管理咨询领域多年，积累了丰富的实战经验和成功案例
             </p>
           </div>
@@ -300,12 +313,12 @@ export default function Cases() {
             ].map((item, i) => {
               const Icon = item.icon
               return (
-                <div key={i} className="text-center">
-                  <div className="w-16 h-16 bg-cta/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Icon size={28} className="text-cta" />
+                <div key={i} className="glass-card rounded-2xl p-6 text-center hover:shadow-glow transition-all duration-300 neon-border">
+                  <div className="w-16 h-16 bg-gradient-to-br from-cta to-accent-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glow">
+                    <Icon size={28} className="text-white" />
                   </div>
-                  <h3 className="font-semibold text-primary mb-2">{item.title}</h3>
-                  <p className="text-slate-500 text-sm">{item.desc}</p>
+                  <h3 className="font-semibold text-text-main mb-2">{item.title}</h3>
+                  <p className="text-text-muted text-sm">{item.desc}</p>
                 </div>
               )
             })}
@@ -314,15 +327,18 @@ export default function Cases() {
       </section>
 
       {/* CTA */}
-      <section className="bg-cta py-16">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-semibold text-white mb-4">让坤元助您实现突破</h2>
-          <p className="text-blue-100 mb-8">
+      <section className="relative bg-gradient-to-br from-cta to-accent-secondary py-16 overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-20"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse-glow"></div>
+
+        <div className="relative max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-semibold text-white mb-4 glow-text">让坤元助您实现突破</h2>
+          <p className="text-white/80 mb-8">
             无论您处于哪个行业，无论您面临什么挑战，我们都能为您提供专业的解决方案
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-cta font-semibold rounded-xl hover:bg-blue-50 transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-cta font-semibold rounded-xl hover:shadow-neon transition-all duration-300 cursor-pointer"
           >
             免费咨询评估
             <ArrowRight size={17} />

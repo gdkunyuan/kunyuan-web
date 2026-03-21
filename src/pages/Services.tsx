@@ -14,9 +14,9 @@ const services = [
   {
     id: 'management',
     icon: TrendingUp,
-    color: 'bg-blue-500',
-    lightColor: 'bg-blue-50',
-    textColor: 'text-blue-600',
+    color: 'bg-gradient-to-br from-cta to-cta/80',
+    lightColor: 'bg-cta/10',
+    textColor: 'text-cta',
     title: '企业管理咨询',
     subtitle: 'Enterprise Management Consulting',
     overview:
@@ -34,9 +34,9 @@ const services = [
   {
     id: 'hr',
     icon: Users,
-    color: 'bg-indigo-500',
-    lightColor: 'bg-indigo-50',
-    textColor: 'text-indigo-600',
+    color: 'bg-gradient-to-br from-accent to-accent/80',
+    lightColor: 'bg-accent/10',
+    textColor: 'text-accent',
     title: '人力资源服务',
     subtitle: 'Human Resources Services',
     overview:
@@ -54,9 +54,9 @@ const services = [
   {
     id: 'finance',
     icon: BarChart3,
-    color: 'bg-emerald-500',
-    lightColor: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
+    color: 'bg-gradient-to-br from-success to-success/80',
+    lightColor: 'bg-success/10',
+    textColor: 'text-success',
     title: '财务管理咨询',
     subtitle: 'Financial Management Consulting',
     overview:
@@ -74,9 +74,9 @@ const services = [
   {
     id: 'it',
     icon: Cpu,
-    color: 'bg-violet-500',
-    lightColor: 'bg-violet-50',
-    textColor: 'text-violet-600',
+    color: 'bg-gradient-to-br from-accent-secondary to-accent-secondary/80',
+    lightColor: 'bg-accent-secondary/10',
+    textColor: 'text-accent-secondary',
     title: 'IT 技术服务',
     subtitle: 'Information Technology Services',
     overview:
@@ -105,80 +105,85 @@ export default function Services() {
   return (
     <div className="pt-16">
       {/* Page Header */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-blue-400 text-sm font-medium uppercase tracking-widest mb-3">产品服务</p>
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">四大专业服务体系</h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-30 animate-grid-move"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cta/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-secondary/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-xs text-cta font-medium mb-6 neon-border">
+            <span className="font-mono">// PRODUCTS & SERVICES</span>
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-5">四大专业服务体系</h1>
+          <p className="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             整合管理、人力、财务、IT四大领域专业能力，为企业提供全链条一站式解决方案
           </p>
         </div>
       </section>
 
       {/* Services Detail */}
-      <section className="bg-bg-light py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
+      <section className="bg-bg-light py-24 relative">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
           {services.map((svc, i) => {
             const Icon = svc.icon
             return (
               <div
                 key={svc.id}
-                className={`bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow duration-300 ${
-                  i % 2 === 1 ? '' : ''
-                }`}
+                className="group glass-card rounded-3xl overflow-hidden hover:shadow-glow transition-all duration-500 neon-border"
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                   {/* Left: Info */}
                   <div className={`p-10 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className={`inline-flex items-center gap-3 mb-5`}>
-                      <div className={`w-12 h-12 ${svc.color} rounded-xl flex items-center justify-center`}>
-                        <Icon size={22} className="text-white" />
+                    <div className="inline-flex items-center gap-3 mb-6">
+                      <div className={`w-14 h-14 ${svc.color} rounded-xl flex items-center justify-center shadow-lg shadow-cta/20`}>
+                        <Icon size={26} className="text-white" />
                       </div>
                       <div>
-                        <h2 className="text-xl font-semibold text-primary">{svc.title}</h2>
-                        <p className={`text-xs ${svc.textColor} font-medium`}>{svc.subtitle}</p>
+                        <h2 className="text-2xl font-bold text-text-main">{svc.title}</h2>
+                        <p className={`text-xs ${svc.textColor} font-medium font-mono mt-1`}>{svc.subtitle}</p>
                       </div>
                     </div>
-                    <p className="text-slate-500 leading-relaxed mb-7">{svc.overview}</p>
+                    <p className="text-text-muted leading-relaxed mb-7 text-lg">{svc.overview}</p>
                     <div className="flex flex-wrap gap-2 mb-7">
                       {svc.tags.map((tag) => (
                         <span
                           key={tag}
-                          className={`px-3 py-1 ${svc.lightColor} ${svc.textColor} text-xs font-medium rounded-full`}
+                          className={`px-4 py-1.5 ${svc.lightColor} ${svc.textColor} text-xs font-medium rounded-full border ${svc.textColor}/30`}
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                        <Clock size={13} className="text-slate-400" />
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="flex items-center gap-1.5 text-xs text-text-muted font-mono">
+                        <Clock size={14} className="text-cta" />
                         快速响应
                       </div>
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                        <Shield size={13} className="text-slate-400" />
+                      <div className="flex items-center gap-1.5 text-xs text-text-muted font-mono">
+                        <Shield size={14} className="text-cta" />
                         保密承诺
                       </div>
                     </div>
                     <Link
                       to="/contact"
-                      className="mt-7 inline-flex items-center gap-2 px-6 py-3 bg-cta text-white text-sm font-medium rounded-xl hover:bg-cta-hover transition-colors duration-200 cursor-pointer"
+                      className="group inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-cta to-accent-secondary text-white text-sm font-medium rounded-xl hover:shadow-neon transition-all duration-300 cursor-pointer"
                     >
                       咨询此服务
-                      <ArrowRight size={15} />
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
 
                   {/* Right: Service Items */}
-                  <div className={`bg-slate-50 p-10 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <h3 className="text-primary font-semibold mb-6">服务内容</h3>
+                  <div className={`bg-secondary/30 p-10 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <h3 className="text-text-main font-bold text-lg mb-6">服务内容</h3>
                     <ul className="space-y-4">
                       {svc.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-3">
-                          <div className={`w-5 h-5 ${svc.lightColor} rounded-full flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                            <CheckCircle2 size={13} className={svc.textColor} />
+                        <li key={j} className="flex items-start gap-3 group/item">
+                          <div className={`w-6 h-6 ${svc.lightColor} rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform`}>
+                            <CheckCircle2 size={14} className={svc.textColor} />
                           </div>
-                          <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
+                          <span className="text-text-muted text-sm leading-relaxed">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -191,30 +196,35 @@ export default function Services() {
       </section>
 
       {/* Service Process */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-secondary/30 py-24 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">服务流程</p>
-            <h2 className="text-3xl font-semibold text-primary mb-4">标准化服务流程</h2>
-            <p className="text-slate-500 max-w-xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cta/10 border border-cta/30 rounded-full text-xs text-cta font-medium mb-6">
+              <span className="font-mono">// SERVICE PROCESS</span>
+            </div>
+            <h2 className="text-4xl font-bold text-text-main mb-4">标准化服务流程</h2>
+            <p className="text-text-muted max-w-xl mx-auto text-lg">
               每一次服务都经过严谨规范的流程管控，确保为每位客户交付高质量的专业服务
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {process.map((p, i) => (
-              <div key={i} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-14 h-14 bg-cta text-white rounded-2xl flex items-center justify-center font-bold text-lg mb-4 shadow-md shadow-blue-200">
-                    {p.step}
+              <div key={i} className="relative group">
+                <div className="glass-card rounded-2xl p-6 hover:shadow-glow transition-all duration-300 hover:-translate-y-1 cursor-default">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-cta to-accent-secondary text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg shadow-cta/30 group-hover:scale-110 transition-transform">
+                      {p.step}
+                    </div>
+                    <h3 className="font-bold text-text-main mb-2">{p.title}</h3>
+                    <p className="text-text-muted text-sm leading-relaxed">{p.desc}</p>
                   </div>
-                  <h3 className="font-semibold text-primary mb-2">{p.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{p.desc}</p>
                 </div>
                 {/* Arrow */}
                 {i < process.length - 1 && (
-                  <div className="hidden md:flex absolute top-7 -right-2 w-4 h-4 items-center justify-center z-10">
-                    <ArrowRight size={16} className="text-slate-300" />
+                  <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-2 w-6 h-6 items-center justify-center z-10">
+                    <ArrowRight size={20} className="text-cta group-hover:text-accent transition-colors" />
                   </div>
                 )}
               </div>
@@ -224,16 +234,23 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="bg-cta py-16">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-semibold text-white mb-4">找到适合您企业的解决方案</h2>
-          <p className="text-blue-100 mb-8">我们的专业顾问将为您评估需求，推荐最合适的服务组合</p>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cta via-accent-secondary to-accent"></div>
+        <div className="absolute inset-0 tech-bg opacity-20"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse-glow"></div>
+
+        <div className="relative max-w-3xl mx-auto px-6 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white/90 font-medium mb-6">
+            <span className="font-mono">GET STARTED</span>
+          </div>
+          <h2 className="text-4xl font-bold text-white mb-4">找到适合您企业的解决方案</h2>
+          <p className="text-blue-100 mb-8 text-lg">我们的专业顾问将为您评估需求，推荐最合适的服务组合</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-cta font-semibold rounded-xl hover:bg-blue-50 transition-colors duration-200 cursor-pointer"
+            className="group inline-flex items-center gap-2 px-10 py-4 bg-white text-cta font-bold rounded-xl hover:shadow-2xl transition-all duration-300 cursor-pointer"
           >
             立即预约咨询
-            <ArrowRight size={17} />
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>

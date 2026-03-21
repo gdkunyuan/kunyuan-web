@@ -59,27 +59,37 @@ export default function Contact() {
   return (
     <div className="pt-16">
       {/* Page Header */}
-      <section className="bg-primary py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <p className="text-blue-400 text-sm font-medium uppercase tracking-widest mb-3">联系我们</p>
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">随时随地，联系我们</h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-30 animate-grid-move"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cta/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-secondary/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full text-xs text-cta font-medium mb-6 neon-border">
+            <span className="font-mono">// CONTACT US</span>
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-5">随时随地，联系我们</h1>
+          <p className="text-text-muted text-lg max-w-2xl mx-auto leading-relaxed">
             填写下方表单，专业顾问将在 24 小时内与您联系
           </p>
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="bg-bg-light py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="bg-primary py-20 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-20"></div>
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Contact Info */}
             <div className="space-y-5">
               <div>
-                <p className="text-cta text-sm font-medium uppercase tracking-widest mb-2">联系方式</p>
-                <h2 className="text-2xl font-semibold text-primary mb-3">我们期待与您联系</h2>
-                <p className="text-slate-500 text-sm leading-relaxed">
-                  无论您有任何关于企业管理、人力资源、财务或 IT 方面的问题，我们的专业团队都乐于为您解答。
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 glass-card rounded-full text-xs text-cta font-medium mb-4">
+                  <span className="font-mono">// INFO</span>
+                </div>
+                <h2 className="text-2xl font-semibold text-text-main mb-3">我们期待与您联系</h2>
+                <p className="text-text-muted text-sm leading-relaxed">
+                  无论您有任何关于企业管理、人力资源、财务或 IT 方面的问题,我们的专业团队都乐于为您解答。
                 </p>
               </div>
 
@@ -88,15 +98,15 @@ export default function Contact() {
                 return (
                   <div
                     key={i}
-                    className="flex gap-4 p-5 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200"
+                    className="flex gap-4 p-5 glass-card rounded-xl hover:shadow-glow transition-all duration-300 neon-border"
                   >
-                    <div className="w-10 h-10 bg-blue-50 text-cta rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} />
+                    <div className="w-10 h-10 bg-gradient-to-br from-cta to-cta/80 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-primary text-sm mb-1.5">{info.title}</h3>
+                      <h3 className="font-semibold text-text-main text-sm mb-1.5 glow-text">{info.title}</h3>
                       {info.lines.map((line, j) => (
-                        <p key={j} className="text-slate-500 text-sm leading-relaxed">
+                        <p key={j} className="text-text-muted text-sm leading-relaxed">
                           {line}
                         </p>
                       ))}
@@ -106,29 +116,32 @@ export default function Contact() {
               })}
 
               {/* Map placeholder */}
-              <div className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
-                <div className="h-40 bg-gradient-to-br from-slate-100 to-blue-50 flex flex-col items-center justify-center gap-2">
-                  <Building2 size={32} className="text-slate-300" />
-                  <span className="text-slate-400 text-sm">广东省中山市三乡镇</span>
+              <div className="glass-card rounded-xl overflow-hidden neon-border">
+                <div className="h-40 bg-gradient-to-br from-cta/10 to-accent/10 flex flex-col items-center justify-center gap-2">
+                  <Building2 size={32} className="text-cta/60" />
+                  <span className="text-text-muted text-sm">广东省中山市三乡镇</span>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-3xl shadow-sm border border-slate-100 p-8 lg:p-10">
+              <div className="glass-card rounded-3xl p-8 lg:p-10 neon-border">
                 {!submitted ? (
                   <>
                     <div className="mb-8">
-                      <h2 className="text-2xl font-semibold text-primary mb-2">发送咨询信息</h2>
-                      <p className="text-slate-500 text-sm">填写以下信息，我们将尽快与您取得联系</p>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 glass-card rounded-full text-xs text-cta font-medium mb-4">
+                        <span className="font-mono">// SUBMIT</span>
+                      </div>
+                      <h2 className="text-2xl font-semibold text-text-main mb-2 glow-text">发送咨询信息</h2>
+                      <p className="text-text-muted text-sm">填写以下信息，我们将尽快与您取得联系</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                          <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="name">
-                            您的姓名 <span className="text-red-500">*</span>
+                          <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="name">
+                            您的姓名 <span className="text-cta">*</span>
                           </label>
                           <input
                             id="name"
@@ -138,11 +151,11 @@ export default function Contact() {
                             placeholder="请输入您的姓名"
                             value={form.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
+                            className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="company">
+                          <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="company">
                             公司名称
                           </label>
                           <input
@@ -152,15 +165,15 @@ export default function Contact() {
                             placeholder="请输入公司名称"
                             value={form.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
+                            className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
-                          <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="phone">
-                            联系电话 <span className="text-red-500">*</span>
+                          <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="phone">
+                            联系电话 <span className="text-cta">*</span>
                           </label>
                           <input
                             id="phone"
@@ -170,11 +183,11 @@ export default function Contact() {
                             placeholder="请输入联系电话"
                             value={form.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
+                            className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="email">
+                          <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="email">
                             电子邮箱
                           </label>
                           <input
@@ -184,13 +197,13 @@ export default function Contact() {
                             placeholder="请输入电子邮箱"
                             value={form.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
+                            className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="service">
+                        <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="service">
                           咨询服务类型
                         </label>
                         <select
@@ -198,7 +211,7 @@ export default function Contact() {
                           name="service"
                           value={form.service}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200 bg-white cursor-pointer"
+                          className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200 cursor-pointer"
                         >
                           <option value="">请选择服务类型</option>
                           {services.map((s) => (
@@ -210,8 +223,8 @@ export default function Contact() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-primary mb-1.5" htmlFor="message">
-                          咨询内容 <span className="text-red-500">*</span>
+                        <label className="block text-sm font-medium text-text-main mb-1.5" htmlFor="message">
+                          咨询内容 <span className="text-cta">*</span>
                         </label>
                         <textarea
                           id="message"
@@ -221,13 +234,13 @@ export default function Contact() {
                           placeholder="请描述您的需求或问题，我们的顾问将为您提供专业建议..."
                           value={form.message}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-primary placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200 resize-none"
+                          className="w-full px-4 py-3 bg-bg-light/50 border border-cta/20 rounded-xl text-sm text-text-main placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-cta/30 focus:border-cta transition-all duration-200 resize-none"
                         />
                       </div>
 
                       <div className="flex items-start gap-3">
-                        <div className="flex items-center gap-2 text-xs text-slate-400 mt-0.5">
-                          <CheckCircle2 size={13} className="text-emerald-500 flex-shrink-0" />
+                        <div className="flex items-center gap-2 text-xs text-text-muted mt-0.5">
+                          <CheckCircle2 size={13} className="text-success flex-shrink-0" />
                           <span>您的信息将严格保密，仅用于业务联系</span>
                         </div>
                       </div>
@@ -235,7 +248,7 @@ export default function Contact() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-cta text-white font-semibold rounded-xl hover:bg-cta-hover transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-lg shadow-blue-100"
+                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-cta to-accent-secondary text-white font-semibold rounded-xl hover:shadow-neon transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                       >
                         {loading ? (
                           <>
@@ -253,16 +266,16 @@ export default function Contact() {
                   </>
                 ) : (
                   <div className="flex flex-col items-center justify-center py-16 text-center">
-                    <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-6">
-                      <CheckCircle2 size={32} className="text-emerald-500" />
+                    <div className="w-16 h-16 glass-card rounded-full flex items-center justify-center mb-6 neon-border">
+                      <CheckCircle2 size={32} className="text-success" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-primary mb-3">提交成功！</h3>
-                    <p className="text-slate-500 max-w-sm leading-relaxed mb-6">
+                    <h3 className="text-2xl font-semibold text-text-main mb-3 glow-text">提交成功！</h3>
+                    <p className="text-text-muted max-w-sm leading-relaxed mb-6">
                       感谢您的咨询，我们的专业顾问将在 24 小时内与您联系。
                     </p>
                     <button
                       onClick={() => { setSubmitted(false); setForm({ name: '', company: '', phone: '', email: '', service: '', message: '' }) }}
-                      className="px-6 py-3 border border-slate-200 text-secondary text-sm font-medium rounded-xl hover:bg-slate-50 transition-colors duration-200 cursor-pointer"
+                      className="px-6 py-3 border border-cta/30 text-text-main text-sm font-medium rounded-xl hover:bg-cta/10 transition-colors duration-200 cursor-pointer"
                     >
                       再次提交
                     </button>
@@ -275,11 +288,15 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <section className="bg-secondary/50 py-20 relative overflow-hidden">
+        <div className="absolute inset-0 tech-bg opacity-10"></div>
+
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">常见问题</p>
-            <h2 className="text-3xl font-semibold text-primary">您可能想了解的问题</h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 glass-card rounded-full text-xs text-cta font-medium mb-4">
+              <span className="font-mono">// FAQ</span>
+            </div>
+            <h2 className="text-3xl font-semibold text-text-main glow-text">您可能想了解的问题</h2>
           </div>
 
           <div className="space-y-4">
@@ -301,12 +318,12 @@ export default function Contact() {
                 a: '是的，我们提供线上线下双重服务模式。大多数咨询和辅导服务均可通过远程方式高效开展。',
               },
             ].map((faq, i) => (
-              <div key={i} className="bg-bg-light rounded-xl p-6 border border-slate-100">
-                <h3 className="font-semibold text-primary mb-2 flex items-start gap-2">
+              <div key={i} className="glass-card rounded-xl p-6 neon-border hover:shadow-glow transition-all duration-300">
+                <h3 className="font-semibold text-text-main mb-2 flex items-start gap-2">
                   <span className="text-cta flex-shrink-0">Q.</span>
                   {faq.q}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed pl-6">{faq.a}</p>
+                <p className="text-text-muted text-sm leading-relaxed pl-6">{faq.a}</p>
               </div>
             ))}
           </div>
