@@ -160,7 +160,7 @@ export default function Cases() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { num: '500+', label: '服务企业' },
+              { num: '20+', label: '服务企业' },
               { num: '98%', label: '客户满意度' },
               { num: '35%', label: '平均营收增长' },
               { num: '28%', label: '平均成本降低' },

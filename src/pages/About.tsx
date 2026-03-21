@@ -10,19 +10,18 @@ import {
 } from 'lucide-react'
 
 const timeline = [
-  { year: '2010', event: '公司成立，专注广东地区企业管理咨询服务' },
-  { year: '2013', event: '业务扩展至人力资源与财务咨询领域' },
-  { year: '2016', event: '推出企业IT信息化建设服务，完成数字化转型布局' },
-  { year: '2019', event: '服务客户突破300家，建立行业标杆案例库' },
-  { year: '2022', event: '深化数字化服务能力，推出企业数字化转型解决方案' },
-  { year: '2026', event: '服务客户超500家，持续扩大专业服务版图' },
+  { year: '2022', event: '公司成立，专注企业管理咨询服务' },
+  { year: '2023', event: '业务扩展至人力资源与财务咨询领域' },
+  { year: '2024', event: '推出企业IT信息化建设服务，完善服务体系' },
+  { year: '2025', event: '服务客户突破15家，建立行业标杆案例' },
+  { year: '2026', event: '深化数字化服务能力，持续扩大服务版图' },
 ]
 
 const team = [
-  { name: '管理咨询团队', count: '20+', desc: '具备10年以上管理咨询经验的资深顾问' },
-  { name: '人力资源团队', count: '15+', desc: '持证人力资源专业从业者' },
-  { name: '财务咨询团队', count: '12+', desc: '注册会计师及财税规划专家' },
-  { name: 'IT技术团队', count: '18+', desc: '软件工程师及信息化建设专家' },
+  { name: '管理咨询团队', count: '5+', desc: '具备丰富管理咨询经验的资深顾问' },
+  { name: '人力资源团队', count: '3+', desc: '人力资源专业从业者' },
+  { name: '财务咨询团队', count: '3+', desc: '财务管理与税务规划专家' },
+  { name: 'IT技术团队', count: '4+', desc: '软件工程师及信息化建设专家' },
 ]
 
 const values = [
@@ -54,26 +53,26 @@ export default function About() {
             <div>
               <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">公司简介</p>
               <h2 className="text-3xl font-semibold text-primary mb-6">
-                专注企业服务，十年匠心沉淀
+                专业团队，精益求精
               </h2>
               <div className="space-y-4 text-slate-500 leading-relaxed">
                 <p>
-                  广东坤元企业管理咨询有限公司成立于 2010 年，总部位于广东省，是一家专业从事企业管理咨询、
+                  广东坤元企业管理咨询有限公司成立于 2022 年，总部位于广东省，是一家专业从事企业管理咨询、
                   人力资源服务、财务管理咨询及 IT 技术服务的综合性咨询机构。
                 </p>
                 <p>
-                  公司拥有一支由资深管理顾问、人力资源专家、注册会计师及信息化技术专家组成的专业团队，
-                  团队成员平均从业年限超过 10 年，服务客户遍及制造业、贸易、零售、互联网等多个行业。
+                  公司拥有一支由资深管理顾问、人力资源专家、财务管理专家及信息化技术专家组成的专业团队，
+                  团队成员具备丰富的实战经验，服务客户遍及制造业、贸易、零售、互联网等多个行业。
                 </p>
                 <p>
                   坚持以客户为中心，坤元咨询为每位客户提供深度调研、定制化方案及全程落地支持服务，
-                  累计服务企业客户超过 500 家，客户满意度持续保持在 98% 以上。
+                  累计服务企业客户超过 20 家，客户满意度持续保持在 98% 以上。
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-4">
                 {[
-                  { value: '500+', label: '服务客户' },
-                  { value: '10+', label: '年经验' },
+                  { value: '20+', label: '服务客户' },
+                  { value: '3+', label: '年经验' },
                   { value: '98%', label: '满意度' },
                 ].map((s, i) => (
                   <div key={i} className="text-center p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
@@ -142,7 +141,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-cta text-sm font-medium uppercase tracking-widest mb-3">发展历程</p>
-            <h2 className="text-3xl font-semibold text-primary mb-4">十年奋进，步履不停</h2>
+            <h2 className="text-3xl font-semibold text-primary mb-4">稳步发展，持续精进</h2>
           </div>
 
           <div className="relative">
