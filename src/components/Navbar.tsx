@@ -6,6 +6,7 @@ const navLinks = [
   { name: '首页', path: '/' },
   { name: '关于我们', path: '/about' },
   { name: '产品服务', path: '/services' },
+  { name: '客户案例', path: '/cases' },
   { name: '联系我们', path: '/contact' },
 ]
 
