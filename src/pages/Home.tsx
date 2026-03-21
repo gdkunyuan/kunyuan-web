@@ -46,10 +46,10 @@ const services = [
 ]
 
 const stats = [
-  { value: '500+', label: '服务企业', icon: Zap },
+  { value: '20+', label: '服务企业', icon: Zap },
   { value: '50+', label: '行业覆盖', icon: Target },
   { value: '98%', label: '客户满意度', icon: Award },
-  { value: '10+', label: '年专业经验', icon: Rocket },
+  { value: '3+', label: '年专业经验', icon: Rocket },
 ]
 
 const advantages = [
@@ -198,7 +198,7 @@ export default function Home() {
                 为什么选择坤元咨询
               </h2>
               <p className="text-text-muted leading-relaxed mb-8 text-lg">
-                坤元企业管理咨询以深厚的行业积淀和专业的服务团队，为数百家企业提供了切实有效的管理提升方案，
+                坤元企业管理咨询以深厚的行业积淀和专业的服务团队，为20+家企业提供了切实有效的管理提升方案，
                 帮助企业实现组织效率提升、运营成本优化和持续健康发展。
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -259,7 +259,7 @@ export default function Home() {
                 <div className="mt-6 pt-6 border-t border-cta/20">
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-xs text-text-muted font-mono">SERVED CLIENTS</div>
-                    <div className="text-cta font-bold text-2xl glow-text">500+</div>
+                    <div className="text-cta font-bold text-2xl glow-text">20+</div>
                   </div>
                   <div className="h-3 bg-secondary/50 rounded-full overflow-hidden">
                     <div className="h-full w-[92%] bg-gradient-to-r from-cta via-accent to-accent-secondary rounded-full animate-gradient-x"></div>
