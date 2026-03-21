@@ -5,7 +5,6 @@ import {
   Eye,
   Heart,
   Users,
-  TrendingUp,
   Award,
   CheckCircle2,
 } from 'lucide-react'
