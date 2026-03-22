@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Clock, BookOpen, TrendingUp, ChevronRight, Filter } from 'lucide-react'
 import { knowledgeArticles } from '../data/knowledgeArticles'
 
@@ -61,9 +62,10 @@ export default function Knowledge() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredArticles.map((article, index) => (
-              <article
+              <Link
                 key={article.id}
-                className="glass-card border border-white/10 rounded-xl p-6 hover:border-cta/50 transition-all duration-300 group cursor-pointer animate-fade-up"
+                to={`/knowledge/${article.id}`}
+                className="glass-card border border-white/10 rounded-xl p-6 hover:border-cta/50 transition-all duration-300 group animate-fade-up block"
                 style={{ animationDelay: `${0.4 + index * 0.1}s` }}
               >
                 {/* Category Badge */}
@@ -105,7 +107,7 @@ export default function Knowledge() {
                     <ChevronRight size={16} />
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
